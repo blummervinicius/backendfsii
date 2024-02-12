@@ -6,7 +6,7 @@ export default class NotasDAO{
 
     async gravar(nota){
         if (nota instanceof Notas){
-            const sql = `INSERT INTO nota(nota_cpfAluno, nota_nomeAluno, nota_disciplina, nota_dataAvaliacao, nota_valorNota, alu_cpf) VALUES(?,?,?,?,?,?)`;
+            const sql = `INSERT INTO notas(nota_cpfAluno, nota_nomeAluno, nota_disciplina, nota_dataAvaliacao, nota_valorNota, alu_cpf) VALUES(?,?,?,?,?,?)`;
             const parametros = [nota.nomeAluno, nota.disciplina, nota.dataAvaliacao, nota.valorNota, nota.aluno.cpf];
 
             const conexao = await conectar();
@@ -76,7 +76,7 @@ export default class NotasDAO{
             const [registros, campos] = await conexao.execute(sql,parametros);
             for (const registro of registros){
                 const aluno = new Aluno(registro.alu_cpf, registro.alu.nome);
-                const nota = new Notas(registro.nota_cpfAluno,registro.nota_nomeAluno, registro.nota_disciplina, registro.nota_dataAvaliacao, registro.nota_valorNota,
+                const nota = new Notas(registro.nota_cpfAluno, registro.nota_nomeAluno, registro.nota_disciplina, registro.nota_dataAvaliacao, registro.nota_valorNota,
                 aluno
                 );
                 listaNotas.push(nota);

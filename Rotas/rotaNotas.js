@@ -1,5 +1,4 @@
 import { Router } from "express";
-import notasCtrl from "../Controle/notasCtrl.js";
 import NotasCtrl from "../Controle/notasCtrl.js";
 
 const notasCtrl = new NotasCtrl();
