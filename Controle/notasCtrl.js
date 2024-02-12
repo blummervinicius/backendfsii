@@ -14,9 +14,9 @@ export default class NotasCtrl {
             const aluno = dados.aluno;
 
             if (cpfAluno && nomeAluno && disciplina && dataAvaliacao && valorNota && aluno) {
-                const nota = new Notas(cpfAluno, nomeAluno, disciplina, dataAvaliacao, valorNota, aluno);
+                const notas = new Notas(cpfAluno, nomeAluno, disciplina, dataAvaliacao, valorNota, aluno);
 
-                nota.gravar().then(() => {
+                notas.gravar().then(() => {
                     resposta.status(200).json({
                         "status": true,
                         "CPF Aluno": nota.cpfAluno,
@@ -59,9 +59,9 @@ export default class NotasCtrl {
             const aluno = dados.aluno;
             
             if (cpfAluno && nomeAluno && disciplina && dataAvaliacao && valorNota && aluno) {
-                const nota = new Notas(cpfAluno, nomeAluno, disciplina, dataAvaliacao, valorNota, aluno);
+                const notas = new Notas(cpfAluno, nomeAluno, disciplina, dataAvaliacao, valorNota, aluno);
 
-                nota.atualizar().then(() => {
+                notas.atualizar().then(() => {
                     resposta.status(200).json({
                         "status": true,
                         "mensagem": "Nota atualizada com sucesso!"
@@ -97,9 +97,9 @@ export default class NotasCtrl {
             const dados = requisicao.body;
             const cpfAluno = dados.cpfAluno;
             if (cpfAluno) {
-                const nota = new Notas(cpfAluno);
+                const notas = new Notas(cpfAluno);
 
-                nota.excluir().then(() => {
+                notas.excluir().then(() => {
                     resposta.status(200).json({
                         "status": true,
                         "mensagem": "Nota excluída com sucesso!"
@@ -135,8 +135,8 @@ export default class NotasCtrl {
             termo = "";
         }
         if (requisicao.method === "GET") {
-            const nota = new Notas();
-            nota.consultar(termo).then((listaNotas) => {
+            const notas = new Notas();
+            notas.consultar(termo).then((listaNotas) => {
                 resposta.json({
                     status: true,
                     listaNotas
