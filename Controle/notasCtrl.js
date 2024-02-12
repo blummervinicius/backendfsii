@@ -11,9 +11,10 @@ export default class NotasCtrl {
             const disciplina = dados.disciplina;
             const dataAvaliacao = dados.dataAvaliacao;
             const valorNota = dados.valorNota;
+            const aluno = dados.aluno;
 
-            if (cpfAluno && nomeAluno && disciplina && dataAvaliacao && valorNota) {
-                const nota = new Notas(cpfAluno, nomeAluno, disciplina, dataAvaliacao, valorNota);
+            if (cpfAluno && nomeAluno && disciplina && dataAvaliacao && valorNota && aluno) {
+                const nota = new Notas(cpfAluno, nomeAluno, disciplina, dataAvaliacao, valorNota, aluno);
 
                 nota.gravar().then(() => {
                     resposta.status(200).json({
@@ -55,8 +56,10 @@ export default class NotasCtrl {
             const disciplina = dados.disciplina;
             const dataAvaliacao = dados.dataAvaliacao;
             const valorNota = dados.valorNota;
-            if (cpfAluno && nomeAluno && disciplina && dataAvaliacao && valorNota) {
-                const nota = new Notas(cpfAluno, nomeAluno, disciplina, dataAvaliacao, valorNota);
+            const aluno = dados.aluno;
+            
+            if (cpfAluno && nomeAluno && disciplina && dataAvaliacao && valorNota && aluno) {
+                const nota = new Notas(cpfAluno, nomeAluno, disciplina, dataAvaliacao, valorNota, aluno);
 
                 nota.atualizar().then(() => {
                     resposta.status(200).json({

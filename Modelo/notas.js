@@ -6,13 +6,15 @@ export default class Notas{
     #disciplina;
     #dataAvaliacao;
     #valorNota;
+    #aluno;
 
-    constructor(cpfAluno=0,nomeAluno='',disciplina='',dataAvaliacao='',valorNota=''){
+    constructor(cpfAluno='',nomeAluno='',disciplina='',dataAvaliacao='',valorNota='',aluno={}){
         this.#cpfAluno=cpfAluno;
         this.#nomeAluno=nomeAluno;
         this.#disciplina=disciplina;
         this.#dataAvaliacao=dataAvaliacao;
         this.#valorNota=valorNota;
+        this.#aluno=aluno; //é um objeto do tipo aluno
     } 
 
     get cpfAluno(){
@@ -55,6 +57,14 @@ export default class Notas{
         this.#valorNota = novoValorNota;
     }
 
+    get aluno(){
+        return this.#aluno;
+    }
+
+    set aluno(novoAluno){
+        this.#aluno = novoAluno;
+    }
+
     toJSON(){
         return{
             cpfAluno:this.#cpfAluno,
@@ -62,6 +72,7 @@ export default class Notas{
             disciplina:this.#disciplina,
             dataAvaliacao:this.#dataAvaliacao,
             valorNota:this.#valorNota,
+            aluno:this.#aluno,
         }
     }
 

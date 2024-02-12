@@ -4,7 +4,7 @@ export default class Aluno{
     #cpf;
     #nome;
 
-    constructor(cpf=0, nome=''){
+    constructor(cpf='', nome=''){
         this.#cpf=cpf;
         this.#nome=nome;
     }
