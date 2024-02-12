@@ -83,7 +83,7 @@ export default class NotasDAO{
             }
         }
 
-        global.poolConexoes.releaseConnection(conexao); //incluí 
+        global.poolConexoes.releaseConnection(conexao); //icluí 
         return listaNotas;
     }
 
