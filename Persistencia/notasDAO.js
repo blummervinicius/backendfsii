@@ -7,7 +7,7 @@ export default class NotasDAO{
     async gravar(nota){
         if (nota instanceof Notas){
             const sql = `INSERT INTO notas(nota_cpfAluno, nota_nomeAluno, nota_disciplina, nota_dataAvaliacao, nota_valorNota, alu_cpf) VALUES(?,?,?,?,?,?)`;
-            const parametros = [nota.nomeAluno, nota.disciplina, nota.dataAvaliacao, nota.valorNota, nota.aluno.cpf];
+            const parametros = [nota_cpfAluno, nota.nomeAluno, nota.disciplina, nota.dataAvaliacao, nota.valorNota, nota.aluno.alu_cpf];
 
             const conexao = await conectar();
             const retorno = await conexao.execute(sql, parametros);
@@ -20,7 +20,7 @@ export default class NotasDAO{
     async atualizar(nota){
         if (nota instanceof Notas){
             const sql = `UPDATE notas SET nota_nomeAluno = ?, nota_disciplina = ?, nota_dataAvaliacao = ?, nota_valorNota = ?, alu_cpf = ? WHERE nota_cpfAluno = ?`;
-            const parametros = [nota.nomeAluno, nota.disciplina, nota.dataAvaliacao, nota.valorNota, nota.aluno.cpf, nota.cpfAluno];
+            const parametros = [nota.nomeAluno, nota.disciplina, nota.dataAvaliacao, nota.valorNota, nota.aluno.alu_cpf, nota.cpfAluno];
             const conexao = await conectar();
             await conexao.execute(sql, parametros);
             global.poolConexoes.releaseConnection(conexao);        }

@@ -6,6 +6,7 @@ export default class NotasCtrl {
         resposta.type('application/json');
         if (requisicao.method === 'POST' && requisicao.is('application/json')) {
             const dados = requisicao.body;
+            console.log(dados);
             const cpfAluno = dados.cpfAluno;
             const nomeAluno = dados.nomeAluno;
             const disciplina = dados.disciplina;
