@@ -52,7 +52,7 @@ export default class NotasDAO{
             const parametros=[termo];
             const [registros, campos] = await conexao.execute(sql,parametros);
             for (const registro of registros){
-                const aluno = new Aluno(registro.alu_cpf, registro.alu.nome);
+                const aluno = new Aluno(registro.alu_cpf, registro.alu_nome);
                 const nota = new Notas(
                     registro.nota_cpfAluno, 
                     registro.nota_nomeAluno, 
@@ -75,7 +75,7 @@ export default class NotasDAO{
             const parametros=['%'+termo+'%'];
             const [registros, campos] = await conexao.execute(sql,parametros);
             for (const registro of registros){
-                const aluno = new Aluno(registro.alu_cpf, registro.alu.nome);
+                const aluno = new Aluno(registro.alu_cpf, registro.alu_nome);
                 const nota = new Notas(registro.nota_cpfAluno, registro.nota_nomeAluno, registro.nota_disciplina, registro.nota_dataAvaliacao, registro.nota_valorNota,
                 aluno
                 );
