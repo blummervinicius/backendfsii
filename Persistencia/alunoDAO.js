@@ -4,7 +4,7 @@ import conectar from "./conexao.js";
 export default class AlunoDAO{
     async gravar(aluno){
         if (aluno instanceof Aluno){
-            const sql = "INSERT INTO aluno(alu_ cpf, alu_nome) VALUES(?,?)";
+            const sql = "INSERT INTO aluno(alu_cpf, alu_nome) VALUES(?,?)";
             const parametros = [aluno.cpf, aluno.nome];
             const conexao = await conectar();
             const retorno = await conexao.execute(sql,parametros);
