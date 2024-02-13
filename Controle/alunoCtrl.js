@@ -6,8 +6,8 @@ export default class AlunoCtrl {
         resposta.type('application/json');
         if (requisicao.method === 'POST' && requisicao.is('application/json')){
             const dados = requisicao.body;
-            const cpf = dados.cpf;
-            const nome = dados.nome;
+            const cpf = dados.alu_cpf;
+            const nome = dados.alu_nome;
             if (cpf && nome){
                 const aluno = new Aluno(cpf, nome);
 
@@ -45,8 +45,8 @@ export default class AlunoCtrl {
         if ((requisicao.method === 'PUT' || requisicao.method === 'PATCH') &&
         requisicao.is('application/json')) {
             const dados = requisicao.body;
-            const cpf = dados.cpf;
-            const nome = dados.nome;
+            const cpf = dados.alu_cpf;
+            const nome = dados.alu_nome;
             if (cpf && nome) {
                 const aluno = new Aluno(cpf, nome);
 
@@ -82,7 +82,7 @@ export default class AlunoCtrl {
         resposta.type('application/json');
         if (requisicao.method === 'DELETE' && requisicao.is('application/json')) {
             const dados = requisicao.body;
-            const cpf = dados.cpf;
+            const cpf = dados.alu_cpf;
             if (cpf) {
                 const aluno = new Aluno(cpf);
 
