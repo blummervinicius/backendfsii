@@ -19,7 +19,7 @@ export default class NotasCtrl {
                 notas.gravar().then(() => {
                     resposta.status(200).json({
                         "status": true,
-                        "CPF Aluno": notas.cpfAluno,
+                        "CPF Aluno": notas.nota_cpfAluno,
                         "mensagem": "Nota incluída com sucesso!"
                     });
                 })
