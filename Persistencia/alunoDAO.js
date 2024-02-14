@@ -55,11 +55,7 @@ export default class AlunoDAO{
             const aluno = new Aluno(registro.alu_cpf,registro.alu_nome);
             listaAlunos.push(aluno);
         }
-        if (registros.length === 1 && !isNaN(parseInt(parametroConsulta))){
-            return listaAlunos[0];
-        }
-        else {
         return listaAlunos;
-    }
+    
     }
 }

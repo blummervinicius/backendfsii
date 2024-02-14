@@ -124,24 +124,11 @@ export default class AlunoCtrl {
         if (requisicao.method === "GET"){
             const aluno = new Aluno();
             aluno.consultar(termo).then((listaAlunos) => {
-                // resposta.json(
-                //     {
-                //         status: true,
-                //         listaAlunos
-                //     });
-                const alunoEncontrado = listaAlunos.find(aluno => aluno.cpf === termo);
-                if (alunoEncontrado){
-                    resposta.json({
+                resposta.json(
+                    {
                         status: true,
-                        alunoEncontrado
+                        listaAlunos
                     });
-                }
-                else {
-                    resposta.json({
-                        status: false,
-                        mensagem: "CPF não encontrado."
-                    });
-                }
             })
             .catch((erro) => {
                 resposta.json(
