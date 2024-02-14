@@ -11,7 +11,7 @@ export default class NotasDAO{
 
             const conexao = await conectar();
             const retorno = await conexao.execute(sql, parametros);
-            nota.cpfAluno = retorno[0].insertId; //alterei aqui
+            nota.cpfAluno = retorno.insertId; //alterei aqui
             global.poolConexoes.releaseConnection(conexao);
         }
 
