@@ -6,12 +6,11 @@ export default class NotasCtrl {
         resposta.type('application/json');
         if (requisicao.method === 'POST' && requisicao.is('application/json')) {
             const dados = requisicao.body;
-            console.log(dados);
-            const cpfAluno = dados.cpfAluno;
-            const nomeAluno = dados.nomeAluno;
-            const disciplina = dados.disciplina;
-            const dataAvaliacao = dados.dataAvaliacao;
-            const valorNota = dados.valorNota;
+            const cpfAluno = dados.nota_cpfAluno;
+            const nomeAluno = dados.nota_nomeAluno;
+            const disciplina = dados.nota_disciplina;
+            const dataAvaliacao = dados.nota_dataAvaliacao;
+            const valorNota = dados.nota_valorNota;
             const aluno = dados.aluno;
 
             if (cpfAluno && nomeAluno && disciplina && dataAvaliacao && valorNota && aluno) {
@@ -52,11 +51,11 @@ export default class NotasCtrl {
         requisicao.method === 'PATCH') && 
         requisicao.is('application/json')) {
             const dados = requisicao.body;
-            const cpfAluno = dados.cpfAluno;
-            const nomeAluno = dados.nomeAluno;
-            const disciplina = dados.disciplina;
-            const dataAvaliacao = dados.dataAvaliacao;
-            const valorNota = dados.valorNota;
+            const cpfAluno = dados.nota_cpfAluno;
+            const nomeAluno = dados.nota_nomeAluno;
+            const disciplina = dados.nota_disciplina;
+            const dataAvaliacao = dados.nota_dataAvaliacao;
+            const valorNota = dados.nota_valorNota;
             const aluno = dados.aluno;
             
             if (cpfAluno && nomeAluno && disciplina && dataAvaliacao && valorNota && aluno) {
@@ -96,7 +95,7 @@ export default class NotasCtrl {
         if (requisicao.method === 'DELETE' && 
         requisicao.is('application/json')) {
             const dados = requisicao.body;
-            const cpfAluno = dados.cpfAluno;
+            const cpfAluno = dados.nota_cpfAluno;
             if (cpfAluno) {
                 const notas = new Notas(cpfAluno);
 
