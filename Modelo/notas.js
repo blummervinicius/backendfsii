@@ -6,7 +6,7 @@ export default class Notas{
     #disciplina;
     #dataAvaliacao;
     #valorNota;
-    #aluno;
+    #aluno; //é um objeto do tipo aluno
 
     constructor(cpfAluno='',nomeAluno='',disciplina='',dataAvaliacao='',valorNota='',aluno={}){
         this.#cpfAluno=cpfAluno;
